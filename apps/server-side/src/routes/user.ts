@@ -13,7 +13,8 @@ router.post("/signup", async (req: Request, res: Response) => {
     const body = await req.body;
     const {success} = SignupInput.safeParse(body);
     if(!success){
-        return res.status(403).json({ error: "Error in input" })
+        res.status(403).json({ error: "Error in input" })
+        return;
     }
     try{
         const existingUser = await prismaClient.user.findUnique({
@@ -22,7 +23,8 @@ router.post("/signup", async (req: Request, res: Response) => {
             }
         })
         if(existingUser){
-            return res.status(403).json({ message: "user already exists with this username"});
+            res.status(403).json({ message: "user already exists with this username"});
+            return;
         }
 
         const user = await prismaClient.user.create({
@@ -32,12 +34,14 @@ router.post("/signup", async (req: Request, res: Response) => {
             }
         })
         const jwt = await sign({ id: user.id }, "12345")
-        return res.status(200).json({
+        res.status(200).json({
             message: "user created",
             token: jwt
         })
+        return;
     } catch(err) {
-        return res.status(500).json({message: "Internal server error"});
+        res.status(500).json({message: "Internal server error"});
+        return;
     }
 })
 
@@ -45,7 +49,8 @@ router.post("/signin", async (req: Request, res: Response) => {
     const body = await req.body;
     const {success} = SigninInput.safeParse(body);
     if(!success){
-        return res.status(403).json({ error: "Error in input" })
+        res.status(403).json({ error: "Error in input" })
+        return;
     }
     try{
         const user = await prismaClient.user.findFirst({
@@ -54,15 +59,19 @@ router.post("/signin", async (req: Request, res: Response) => {
             }
         })
         if(!user){
-            return res.status(411).json({ message: "user not found" })
+            res.status(411).json({ message: "user not found" })
+            return;
         }
         if(body.password != user?.password){
-            return res.status(403).json({ message: "wrong password" })
+            res.status(403).json({ message: "wrong password" })
+            return;
         }
         const jwt = await sign({ id: user?.id}, "12345")
-        return res.status(200).json({ token: jwt })
+        res.status(200).json({ token: jwt })
+        return;
     }catch(err){
-        return res.status(500).json({message: "Internal server error"});
+        res.status(500).json({message: "Internal server error"});
+        return;
 
     }
 })
