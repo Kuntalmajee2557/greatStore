@@ -41,7 +41,7 @@ router.post("/signup", async (req: Request, res: Response) => {
     }
 })
 
-router.post("/signin", async (req, res) => {
+router.post("/signin", async (req: Request, res: Response) => {
     const body = await req.body;
     const {success} = SigninInput.safeParse(body);
     if(!success){
