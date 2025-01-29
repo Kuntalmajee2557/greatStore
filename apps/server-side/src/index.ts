@@ -1,17 +1,20 @@
-import express from "express"
-import userRouter from "./routes/user"
-import { prismaClient } from "@repo/db/client"
-const app = express()
-app.use(express.json())
+import express from "express";
+import userRouter from "./routes/user";
+import contentRouter from "./routes/content";
+import brainRouter from "./routes/brain";
+const app = express();
+app.use(express.json());
 
 const PORT = 3000;
 
-app.use("/api/v1/user", userRouter)
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/content", contentRouter);
+app.use("/api/v1/brain", brainRouter);
 
 app.get('/', (req, res) => {
-    res.send("home")
+    res.send("home");
 })
 
 app.listen(PORT, () => {
-    console.log(`listening the port ${PORT}`)
+    console.log(`listening the port ${PORT}`);
 })

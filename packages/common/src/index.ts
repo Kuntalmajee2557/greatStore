@@ -1,4 +1,4 @@
-import {z} from "zod";
+import {Schema, TypeOf, z} from "zod";
 
 
 export const SignupInput = z.object({
@@ -16,3 +16,19 @@ export const SigninInput = z.object({
 
 export type SigninInput = z.infer<typeof SigninInput>;
 
+export enum contentType {
+    ARTICLE= "ARTICLE",
+    VIDEO= "VIDEO",
+    IMAGE= "IMAGE",
+    AUDIO= "AUDIO"
+}
+
+export const contentInput = z.object({
+    link: z.string(),
+    type: z.nativeEnum(contentType),
+    title: z.string(),
+    tags: z.array(z.string()).optional(),
+    userId: z.string()
+})
+
+export type contentInput = z.infer<typeof contentInput>
