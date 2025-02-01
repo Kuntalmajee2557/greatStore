@@ -3,6 +3,8 @@ import Button from '../components/Button'
 import Plus from '../Icons/Plus'
 import Logo from '../Icons/Logo'
 import Search from '../Icons/Search'
+import Card from '../components/Card'
+import SideItem from '../components/SideItem'
 
 function Dashboard() {
   return (
@@ -28,8 +30,19 @@ function Dashboard() {
       </div>
 
       <div className='flex'>
-          <div className='border border-white/15 w-2/8'>fsd</div>
-          <div className='border border-white/15 w-6/8'>fsd</div>
+          <div className='w-2/8 pt-10 px-5 flex flex-col gap-2'>
+            <SideItem />
+            <SideItem />
+            <SideItem />
+            <SideItem />
+
+          </div>
+          <div className='w-6/8 flex gap-5 pt-10 pb-10 pr-10'>
+            <Card />
+            <Card />
+            <Card />
+
+          </div>
         </div>
     </div>
   )
