@@ -6,7 +6,7 @@ interface PropInterface {
     size: string;
 }
 
-function Logo({ color1, color2, size }: PropInterface) {
+function LogoIcon({ color1, color2, size }: PropInterface) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 5.74001C22 7.44001 21.16 9.04 19.72 9.94C18.42 10.76 16.54 11.59 14 11.88V5.74001C14 3.68001 15.68 2 17.74 2H18.26C20.32 2 22 3.68001 22 5.74001Z" stroke={color1} strokeWidth="1.5" strokeMiterlimit="10"/>
@@ -19,4 +19,4 @@ function Logo({ color1, color2, size }: PropInterface) {
   )
 }
 
-export default Logo;
+export default LogoIcon;
