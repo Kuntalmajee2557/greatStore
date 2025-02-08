@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { Dispatch, ForwardedRef, forwardRef, SetStateAction } from 'react'
 
 interface inputProps {
     label: string;
+    placeholder: string
 }
 
-function Input({label}: inputProps) {
+const Input = React.forwardRef<HTMLInputElement, inputProps>(({label, placeholder, ...inputPorps }, ref: ForwardedRef<HTMLInputElement>) => {
     return (
-        <div className='flex flex-col gap-4'>
-            <label htmlFor="password" className='text-2xl text-white/80 font-semibold'>{label}</label>
-            <input id="password" type="text" className='bg-white/5 border border-white/20 rounded-xl py-3 px-5 text-2xl text-slate-200' />
+        <div className='flex flex-col gap-2 mt-2'>
+            <label htmlFor={label} className='text-2xl text-slate-300 font-semibold'>{label}</label>
+            <input id={label} type="text" placeholder={placeholder} className='bg-white/5 border border-white/20 rounded-xl py-3 px-5 text-2xl text-stone-300 outline-none focus-within:border-white focus-within:border-2' ref={ref} {...inputPorps}/>
+            
         </div>
     )
-}
+})
 
-export default Input
+export default React.memo(Input)
