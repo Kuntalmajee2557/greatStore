@@ -27,7 +27,7 @@ function Signin() {
       .then((res) => {
         console.log(res)
         console.log(res.status)
-        navigate("/dashboard")
+        navigate("/dashboard", {state: { token: res.data.token }})
       })
       
     } catch (error) {

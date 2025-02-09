@@ -3,7 +3,8 @@ import React, { ReactElement } from 'react'
 interface buttonProps {
     varient: "primary" | "secondary";
     text: string,
-    startIcon: ReactElement
+    startIcon: ReactElement,
+    onClick: () => void
 }
 
 const varientColor = {
@@ -13,9 +14,9 @@ const varientColor = {
 
 const defaultStyle = "px-3 py-1 rounded-sm flex items-center gap-2"
 
-function Button({ varient, text, startIcon }: buttonProps) {
+function Button({ varient, text, startIcon, onClick }: buttonProps) {
     return (
-        <button className={varientColor[varient] + " " + defaultStyle}>
+        <button onClick={onClick} className={varientColor[varient] + " " + defaultStyle}>
             {startIcon}
             {text}
         </button>

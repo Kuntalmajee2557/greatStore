@@ -5,7 +5,11 @@ import Button from './Button'
 import ShareIcon from '../Icons/Share'
 import PlusIcon from '../Icons/Plus'
 
-function Navbar() {
+interface navbarProps {
+  onClick: () => void
+}
+
+function Navbar({onClick}: navbarProps) {
   return (
     <div className='navbar bg-black/10 border border-b-white/5 h-20 flex items-center px-5' >
         <div className='leftItem w-1/2 flex justify-start gap-10 items-center'>
@@ -21,8 +25,8 @@ function Navbar() {
           </div>
         </div>
         <div className='rightItem flex w-1/2 justify-end gap-2'>
-          <Button varient='primary' text='Share' startIcon={<ShareIcon className='size-3' />}/>
-          <Button varient='primary' text='Add' startIcon={<PlusIcon className='size-4'/>}/>
+          <Button varient='primary' text='Share' startIcon={<ShareIcon className='size-3'/>}  onClick={onClick}/>
+          <Button varient='primary' text='Add' startIcon={<PlusIcon className='size-4'/>}  onClick={onClick}/>
 
         </div>
       </div>

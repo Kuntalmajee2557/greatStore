@@ -28,9 +28,9 @@ function Signup() {
         data: formData
       })
       .then((res) => {
-        console.log(res)
-        console.log(res.status)
-        navigate("/signin")
+        if(res.status === 200){
+          navigate("/signin");
+        }
       })
       
     } catch (error) {
