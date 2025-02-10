@@ -91,7 +91,7 @@ function Modal({ modal, toggleModal, token }: modalProps) {
     console.log(token)
     console.log("Form Data:", formData);
     axios({
-      url:"http://localhost:3000/api/v1/content",
+      url:`${import.meta.env.BACKEND_URL}/api/v1/content`,
       method: "POST",
       data: formData,
       headers: {

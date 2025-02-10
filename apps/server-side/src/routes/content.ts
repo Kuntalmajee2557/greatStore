@@ -59,7 +59,7 @@ router.post('/', middleware, async (req, res) => {
 })
 
 router.get('/', middleware, async (req, res) => {
-    const body = await req.body;
+    const userId =  req.userId;
     // const {success} = contentInput.safeParse(body);
     // if(!success){
     //     res.status(403).json({ error: "Error in input" })
@@ -68,7 +68,7 @@ router.get('/', middleware, async (req, res) => {
     try {
         const contents = await prismaClient.content.findMany({
             where: {
-                userId: body.userId
+                userId: userId
             },
             select: {
                 id: true,

@@ -6,10 +6,11 @@ import ShareIcon from '../Icons/Share'
 import PlusIcon from '../Icons/Plus'
 
 interface navbarProps {
-  onClick: () => void
+  handleSetPublicLink: () => void,
+  toggleModal: () => void;
 }
 
-function Navbar({onClick}: navbarProps) {
+function Navbar({handleSetPublicLink, toggleModal}: navbarProps) {
   return (
     <div className='navbar bg-black/10 border border-b-white/5 h-20 flex items-center px-5' >
         <div className='leftItem w-1/2 flex justify-start gap-10 items-center'>
@@ -19,14 +20,14 @@ function Navbar({onClick}: navbarProps) {
             </div>
             <p className=' font-medium font-semibold text-4xl font-bold bg-gradient-to-r from-blue-500 via-orange-500 to-blue-500 text-transparent bg-clip-text'>GreateStore</p>
           </div> 
-          <div className='w-96 p-2 flex gap-2 items-center border border-stone-400 px-2 rounded-xl focus-within:border-white'>
+          {/* <div className='w-96 p-2 flex gap-2 items-center border border-stone-400 px-2 rounded-xl focus-within:border-white'>
             <SearchIcon className='size-5 text-white'/>
             <input type="text" className='text-xl text-white/80 outline-none'/>
-          </div>
+          </div> */}
         </div>
         <div className='rightItem flex w-1/2 justify-end gap-2'>
-          <Button varient='primary' text='Share' startIcon={<ShareIcon className='size-3'/>}  onClick={onClick}/>
-          <Button varient='primary' text='Add' startIcon={<PlusIcon className='size-4'/>}  onClick={onClick}/>
+          <Button varient='primary' text='Share' startIcon={<ShareIcon className='size-3'/>}  onClick={handleSetPublicLink}/>
+          <Button varient='primary' text='Add' startIcon={<PlusIcon className='size-4'/>}  onClick={toggleModal}/>
 
         </div>
       </div>

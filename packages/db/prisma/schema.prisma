@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgres://postgres:mysecretpassword@localhost:8080/mydatabase"
+  url      = process.env(POSTGREST_URL)
 }
 
 model User  {

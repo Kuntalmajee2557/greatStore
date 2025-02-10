@@ -23,7 +23,7 @@ function Signup() {
     try {
       setError("");
       await axios({
-        url:"http://localhost:3000/api/v1/user/signup",
+        url:`${import.meta.env.BACKEND_URL}/api/v1/user/signup`,
         method: "POST",
         data: formData
       })
