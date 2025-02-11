@@ -37,7 +37,7 @@ function Card({ content, onDelete }: cardProps) {
                     href={content.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-black text-white py-2 px-4 rounded-md border border-white/30 hover:bg-white/10 hover:border-white/50 text-center text-lg font-medium"
+                    className="bg-white/20 text-white py-2 px-4 rounded-md border border-white/30 hover:bg-white/90 hover:text-black/80 text-center text-lg font-medium"
                 >
                     Open Link
                 </a>
@@ -48,7 +48,7 @@ function Card({ content, onDelete }: cardProps) {
                     <Tag key={tag.id} content={tag.title} />
                 ))}
             </div>
-            <CreateTime />
+            {/* <CreateTime /> */}
         </div>
     );
 }
