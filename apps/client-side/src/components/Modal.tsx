@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CancelIcon from "../Icons/Cancel";
 import { useForm } from "react-hook-form"
-import { DefaultValue, useRecoilValue } from "recoil";
 import axios from "axios";
-import { tokenAtom } from "../store/atom/token";
 
 interface modalProps {
   modal: boolean;
@@ -24,7 +22,7 @@ function Modal({ modal, toggleModal, token }: modalProps) {
     tags: [] as string[],
   });
   const [notification, setNotification] = useState<string | null>(null);
-  const [error, setError] = useState<any>('');
+  // const [error, setError] = useState<any>('');
   const { register, handleSubmit, watch, setValue, formState: { errors, isSubmitting } } = useForm<IFormInput>({ defaultValues: { tags: [] } });
 
   const tags = watch("tags") || []

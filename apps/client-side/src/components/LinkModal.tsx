@@ -1,4 +1,3 @@
-import React from "react";
 import CancelIcon from "../Icons/Cancel";
 
 interface ModalProps {

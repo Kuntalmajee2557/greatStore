@@ -1,6 +1,4 @@
-import React from 'react';
 import Tag from './Tag';
-import CreateTime from './CreateTime';
 
 interface contentProps {
     id: string;

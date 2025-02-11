@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
-import Button from '../components/Button'
-import Plus from '../Icons/Plus'
-import { data, ErrorResponse, Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Input from '../components/Input'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
@@ -22,6 +20,7 @@ function Signup() {
 
   async function handleSingup(formData: IFormInput) {
     try {
+      console.log(error)
       setError("");
       await axios({
         url:`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signup`,

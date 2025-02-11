@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BrainCard from '../components/BrainCard';
 import LogoIcon from '../Icons/Logo';
@@ -19,13 +19,13 @@ type Content = {
     tags: Tag[];
 };
 
-type BrainResponse = {
-    username: string;
-    links: {
-        hash: string;
-    }[];
-    contents: Content[];
-};
+// type BrainResponse = {
+//     username: string;
+//     links: {
+//         hash: string;
+//     }[];
+//     contents: Content[];
+// };
 
 function Brain() {
     const [user, setUser] = useState<string>('');
@@ -65,7 +65,7 @@ function Brain() {
                 <div className='text-white rotate-90'>
                     <LogoIcon color1="#FF5733" color2="#4A90E2" size='32' />
                 </div>
-                <p className='font-medium font-semibold text-4xl font-bold bg-gradient-to-r from-blue-500 via-orange-500 to-blue-500 text-transparent bg-clip-text'>GreateStore</p>
+                <p className='text-4xl font-bold bg-gradient-to-r from-blue-500 via-orange-500 to-blue-500 text-transparent bg-clip-text'>GreateStore</p>
             </div>
 
             {/* Content */}

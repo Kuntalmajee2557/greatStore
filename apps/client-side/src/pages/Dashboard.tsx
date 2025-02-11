@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import SideItem from '../components/SideItem';
 import Navbar from '../components/Navbar';
@@ -101,7 +101,7 @@ function Dashboard() {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => {
+      .then(() => {
         setLink("")
         toggleLinkModal()
       })
