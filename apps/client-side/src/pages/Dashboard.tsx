@@ -44,7 +44,7 @@ function Dashboard() {
   const handleDelete = (id: string) => {
     console.log(token);
     axios({
-      url: `${import.meta.env.BACKEND_URL}/api/v1/content`,
+      url: `${import.meta.env.VITE_BACKEND_URL}/api/v1/content`,
       method: 'DELETE',
       data: {
         contentId: id,
@@ -74,7 +74,7 @@ function Dashboard() {
 
   const handleSetPublicLink = () => {
     axios({
-      url: `${import.meta.env.BACKEND_URL}/api/v1/brain/share`,
+      url: `${import.meta.env.VITE_BACKEND_URL}/api/v1/brain/share`,
       method: 'POST',
       data: {
         share: true
@@ -92,7 +92,7 @@ function Dashboard() {
 
   const handleRemovePublicLink = () => {
     axios({
-      url: `${import.meta.env.BACKEND_URL}/api/v1/brain/share`,
+      url: `${import.meta.env.VITE_BACKEND_URL}/api/v1/brain/share`,
       method: 'POST',
       data: {
         share: false
@@ -119,7 +119,7 @@ function Dashboard() {
   useEffect(() => {
     console.log('Fetching content...');
     axios({
-      url: `${import.meta.env.BACKEND_URL}/api/v1/content`,
+      url: `${import.meta.env.VITE_BACKEND_URL}/api/v1/content`,
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,

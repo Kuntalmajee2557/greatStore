@@ -10,7 +10,7 @@ interface ModalProps {
 
 function LinkModal({ linkModal, handleRemovePublicLink, toggleLinkModal, link }: ModalProps) {
   const handleCopy = () => {
-    navigator.clipboard.writeText(link);
+    navigator.clipboard.writeText(`${import.meta.env.VITE_FRONTEND_URL}/brain/${link}`);
     alert("Link copied to clipboard!");
   };
 
@@ -27,7 +27,7 @@ function LinkModal({ linkModal, handleRemovePublicLink, toggleLinkModal, link }:
           </button>
         </div>
         <div className="flex justify-between items-center p-2 border border-stone-600 rounded-md bg-black text-white">
-          <span className="truncate">{link}</span>
+          <span className="truncate">{import.meta.env.VITE_FRONTEND_URL}/brain/{link}</span>
           <button onClick={handleCopy} className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700">
             Copy
           </button>

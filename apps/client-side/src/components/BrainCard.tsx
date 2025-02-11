@@ -24,7 +24,6 @@ function BrainCard({ content }: CardProps) {
     return (
         <div className='w-full bg-white/5 rounded-md p-5 flex flex-col gap-4 border border-white/30 relative'>
             <p className='text-white/90 text-2xl font-semibold'>{content.title}</p>
-            <p className='text-white/70'>{content.userId}</p>
 
             <div className='w-full flex gap-2 flex-wrap pb-2'>
                 {content.tags?.map((tag) => (

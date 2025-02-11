@@ -35,7 +35,7 @@ function Brain() {
     useEffect(() => {
         if (link) {
             axios({
-                url: `${import.meta.env.BACKEND_URL}/api/v1/brain/${link}`,
+                url: `${import.meta.env.VITE_BACKEND_URL}/api/v1/brain/${link}`,
                 method: 'GET',
             })
                 .then((res) => {

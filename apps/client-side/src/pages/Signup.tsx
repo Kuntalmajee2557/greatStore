@@ -6,6 +6,7 @@ import Input from '../components/Input'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
 
+
 interface IFormInput {
   username: string
   password: string
@@ -23,7 +24,7 @@ function Signup() {
     try {
       setError("");
       await axios({
-        url:`${import.meta.env.BACKEND_URL}/api/v1/user/signup`,
+        url:`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signup`,
         method: "POST",
         data: formData
       })
