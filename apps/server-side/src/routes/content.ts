@@ -32,10 +32,10 @@ router.post('/', middleware, async (req, res) => {
             const existingTags = await prismaClient.tag.findMany({
                 where: { title: { in: body.tags } }
             });
-            const existingTagTitles = existingTags.map(tag => tag.title);
+            const existingTagTitles = existingTags.map((tag: { title: string; id: string; }) => tag.title);
             const newTags = body.tags.filter((tag: string) => !existingTagTitles.includes(tag));
             tagConnections  = {
-                connect: existingTags.map(tag => ({ id: tag.id })), // Connect existing tags
+                connect: existingTags.map((tag: { title: string; id: string; }) => ({ id: tag.id })), // Connect existing tags
                 create: newTags.map((tag: string) => ({ title: tag }))
             }
         }
