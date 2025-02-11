@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "vite.config.ts",
+        "use": "@vercel/static-build",
+        "config": { "zeroConfig": true }
+      }
+    ],
+    "routes": [{ "src": "/(.*)", "dest": "/" }],
+    "outputDirectory": "dist"
+  }
+  
